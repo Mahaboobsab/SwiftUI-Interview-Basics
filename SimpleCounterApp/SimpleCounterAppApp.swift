@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct SimpleCounterAppApp: App {
+    var counter = Counter()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            VStack {
+                IncrementView()
+                Divider()
+                DisplayView()
+            }
+            .environmentObject(counter) // ✅ Sharing counter
         }
     }
 }
